@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conta Cubos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/client/style.css" />
+  </head>
+  <body>
+    <!-- Tela inicial -->
+    <section id="screen-home" class="screen home">
+      <div class="home-card">
+        <h1>Conta <span>Cubos</span></h1>
+        <p class="tagline">A figura gira. Conte os cubos. Quem acertar primeiro leva o ponto.</p>
+
+        <label class="field">
+          <span>Seu nome</span>
+          <input id="name" maxlength="20" autocomplete="nickname" placeholder="Como você quer aparecer" />
+        </label>
+
+        <button id="btn-create" class="primary">Criar sala</button>
+
+        <div class="divider"><span>ou entre numa sala</span></div>
+
+        <div class="join-row">
+          <input id="code" maxlength="6" placeholder="Código" autocomplete="off" />
+          <button id="btn-join">Entrar</button>
+        </div>
+
+        <p id="home-error" class="error" role="alert"></p>
+
+        <details class="rules">
+          <summary>Regras</summary>
+          <ul>
+            <li>Toda pilha vai até o chão: não há cubos flutuando nem escondidos dentro da figura.</li>
+            <li>Todo topo de pilha aparece em algum momento da rotação. Dá para contar tudo, sem chute.</li>
+            <li>Cada cor é uma camada de altura: azul é o chão, laranja a segunda camada, e assim por diante.</li>
+            <li>Errou? Você fica 4 segundos sem poder responder.</li>
+          </ul>
+        </details>
+      </div>
+    </section>
+
+    <!-- Sala -->
+    <section id="screen-room" class="screen room hidden">
+      <div id="stage">
+        <div id="canvas-host"></div>
+        <div id="hud">
+          <div id="round-label"></div>
+          <div id="timer"></div>
+        </div>
+        <div id="overlay" class="hidden"></div>
+      </div>
+
+      <aside id="panel">
+        <header class="room-head">
+          <div>
+            <div class="muted small">Sala</div>
+            <div id="room-code" class="code"></div>
+          </div>
+          <button id="btn-copy" class="ghost">Copiar link</button>
+        </header>
+
+        <form id="guess-form" class="hidden">
+          <label class="field">
+            <span>Quantos cubos?</span>
+            <div class="join-row">
+              <input id="guess" type="number" inputmode="numeric" min="0" max="9999" autocomplete="off" />
+              <button class="primary" type="submit">Enviar</button>
+            </div>
+          </label>
+          <p id="guess-status" class="muted small" aria-live="polite"></p>
+        </form>
+
+        <h2>Placar</h2>
+        <ol id="scoreboard"></ol>
+
+        <h2>Acontecendo</h2>
+        <ul id="feed"></ul>
+      </aside>
+    </section>
+
+    <script type="module" src="/src/client/main.ts"></script>
+  </body>
+</html>
