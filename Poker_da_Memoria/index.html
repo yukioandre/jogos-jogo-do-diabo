@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Poker da Memória</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/client/style.css" />
+  </head>
+  <body>
+    <!-- Tela inicial -->
+    <section id="screen-home" class="screen home">
+      <div class="home-card">
+        <h1>Poker da <span>Memória</span></h1>
+        <p class="tagline">
+          Memorize 16 cartas em 20 segundos. Depois, de olhos na mesa coberta, escolha as 2 que formam o
+          melhor jogo com as 3 abertas.
+        </p>
+
+        <label class="field">
+          <span>Seu nome</span>
+          <input id="name" maxlength="20" autocomplete="nickname" placeholder="Como você quer aparecer" />
+        </label>
+
+        <button id="btn-create" class="primary">Criar sala</button>
+
+        <div class="divider"><span>ou entre numa sala</span></div>
+
+        <div class="join-row">
+          <input id="code" class="upper" maxlength="6" placeholder="Código" autocomplete="off" />
+          <button id="btn-join">Entrar</button>
+        </div>
+
+        <p id="home-error" class="error" role="alert"></p>
+
+        <details class="rules">
+          <summary>Regras</summary>
+          <ul>
+            <li>16 cartas ficam viradas para cima por 20 segundos, em 4 fileiras de 4.</li>
+            <li>Elas são cobertas e cada uma ganha uma letra, de A a P.</li>
+            <li>3 cartas novas são abertas. Cada jogador escolhe, em segredo, 2 letras.</li>
+            <li>As 2 cartas escolhidas + as 3 abertas formam a mão. A melhor mão vence a rodada.</li>
+            <li>Os dois podem escolher as mesmas cartas. Quem não escolher em 60 segundos perde a rodada.</li>
+          </ul>
+        </details>
+      </div>
+    </section>
+
+    <!-- Sala -->
+    <section id="screen-room" class="screen room hidden">
+      <main id="table">
+        <div id="hud">
+          <div id="round-label"></div>
+          <div id="phase-label"></div>
+          <div id="timer"></div>
+        </div>
+        <div id="stage"></div>
+      </main>
+
+      <aside id="panel">
+        <header class="room-head">
+          <div>
+            <div class="muted small">Sala</div>
+            <div id="room-code" class="code"></div>
+          </div>
+          <button id="btn-copy" class="ghost">Copiar link</button>
+        </header>
+
+        <h2>Placar</h2>
+        <ol id="scoreboard"></ol>
+
+        <details class="ranking">
+          <summary>Ranking das mãos</summary>
+          <ol>
+            <li>Straight flush</li>
+            <li>Quadra</li>
+            <li>Full house</li>
+            <li>Flush</li>
+            <li>Sequência</li>
+            <li>Trinca</li>
+            <li>Dois pares</li>
+            <li>Par</li>
+            <li>Carta alta</li>
+          </ol>
+        </details>
+
+        <h2>Acontecendo</h2>
+        <ul id="feed"></ul>
+      </aside>
+    </section>
+
+    <script type="module" src="/src/client/main.ts"></script>
+  </body>
+</html>
