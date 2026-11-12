@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>13 Pesado</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/client/style.css" />
+  </head>
+  <body>
+    <!-- Tela inicial -->
+    <section id="screen-home" class="screen home">
+      <div class="home-card">
+        <h1><span>13</span> Pesado</h1>
+        <p class="tagline">
+          Três suportes, cubos de peso 0 a 6. Coloque o seu sem deixar nenhum suporte passar de 13, ou
+          leve a culpa pelos cubos que caírem.
+        </p>
+
+        <label class="field">
+          <span>Seu nome</span>
+          <input id="name" maxlength="20" autocomplete="nickname" placeholder="Como você quer aparecer" />
+        </label>
+
+        <button id="btn-create" class="primary">Criar sala</button>
+
+        <div class="divider"><span>ou entre numa sala</span></div>
+
+        <div class="join-row">
+          <input id="code" class="upper" maxlength="6" placeholder="Código" autocomplete="off" />
+          <button id="btn-join">Entrar</button>
+        </div>
+
+        <p id="home-error" class="error" role="alert"></p>
+
+        <details class="rules">
+          <summary>Regras em 1 minuto</summary>
+          <ul>
+            <li>Cada jogador tem 7 cubos (pesos 0 a 6) e 7 fichas: 2 vermelhas, 2 verdes, 2 azuis e 1 arco-íris.</li>
+            <li>Em cada rodada, todos escolhem em segredo 1 cubo e 1 ficha. A cor da ficha diz em qual suporte o cubo vai; a arco-íris vale qualquer um.</li>
+            <li>Joga primeiro quem usou a arco-íris; depois, do cubo mais pesado ao mais leve.</li>
+            <li>Na sua vez, coloque o cubo ou passe. Quem passa coloca no fim da rodada, em ordem inversa.</li>
+            <li>Se o suporte passar de 13, os outros cubos dele saem e você leva −1 por cubo retirado.</li>
+            <li>Depois de 7 rodadas, vence quem tiver menos penalidade.</li>
+          </ul>
+        </details>
+      </div>
+    </section>
+
+    <!-- Sala -->
+    <section id="screen-room" class="screen room hidden">
+      <main id="table">
+        <div id="hud">
+          <div id="round-label"></div>
+          <div id="phase-label"></div>
+          <div id="timer"></div>
+        </div>
+        <div id="supports"></div>
+        <div id="event" aria-live="polite"></div>
+        <div id="stage"></div>
+      </main>
+
+      <aside id="panel">
+        <header class="room-head">
+          <div>
+            <div class="muted small">Sala</div>
+            <div id="room-code" class="code"></div>
+          </div>
+          <button id="btn-copy" class="ghost">Copiar link</button>
+        </header>
+
+        <h2>Jogadores</h2>
+        <ol id="scoreboard"></ol>
+
+        <h2>Acontecendo</h2>
+        <ul id="feed"></ul>
+      </aside>
+    </section>
+
+    <script type="module" src="/src/client/main.ts"></script>
+  </body>
+</html>
