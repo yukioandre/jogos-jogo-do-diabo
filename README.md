@@ -11,6 +11,7 @@ código e instruções de publicação.
 | [Conta Cubos](Conta_Cubos) | 2 a 30 | Uma figura 3D de cubos empilhados gira na tela. Quem disser primeiro quantos cubos ela tem leva o ponto. |
 | [Poker da Memória](Poker_da_Memoria) | 2 (+ espectadores) | 16 cartas ficam à mostra por 20 segundos e depois são cobertas. Cada jogador escolhe 2 delas para formar, com 3 cartas abertas, a melhor mão de pôquer. |
 | [13 Pesado](13_Pesado) | 2 a 8 | Todos escolhem em segredo um cubo (peso 0 a 6) e um suporte. Na sua vez, coloque ou passe; quem faz um suporte passar de 13 é penalizado pelos cubos que caem. |
+| [Equação Maior-Menor](Equacao_Maior_Menor) | 2 a 6 | Monte uma equação com suas cartas, aposte fichas como no pôquer e decida em segredo se vai chegar perto de 1, de 20 ou dos dois. O mais perto de cada alvo leva metade do pote. |
 
 As regras completas de cada jogo estão no README da pasta dele.
 
@@ -21,6 +22,7 @@ jogos-jogo-do-diabo/
 ├── Conta_Cubos/        regras, código e configuração do Conta Cubos
 ├── Poker_da_Memoria/   regras, código e configuração do Poker da Memória
 ├── 13_Pesado/          regras, código e configuração do 13 Pesado
+├── Equacao_Maior_Menor/ regras, código e configuração da Equação Maior-Menor
 └── README.md           este arquivo
 ```
 

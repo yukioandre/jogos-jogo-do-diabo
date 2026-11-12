@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Equação Maior-Menor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/client/style.css" />
+  </head>
+  <body>
+    <!-- Tela inicial -->
+    <section id="screen-home" class="screen home">
+      <div class="home-card">
+        <h1>Equação <span>Maior-Menor</span></h1>
+        <p class="tagline">
+          Monte uma equação com suas cartas, aposte fichas e decida em segredo: chegar perto de 1, de 20,
+          ou dos dois.
+        </p>
+
+        <label class="field">
+          <span>Seu nome</span>
+          <input id="name" maxlength="20" autocomplete="nickname" placeholder="Como você quer aparecer" />
+        </label>
+
+        <button id="btn-create" class="primary">Criar sala</button>
+
+        <div class="divider"><span>ou entre numa sala</span></div>
+
+        <div class="join-row">
+          <input id="code" class="upper" maxlength="6" placeholder="Código" autocomplete="off" />
+          <button id="btn-join">Entrar</button>
+        </div>
+
+        <p id="home-error" class="error" role="alert"></p>
+
+        <details class="rules">
+          <summary>Regras em 1 minuto</summary>
+          <ul>
+            <li>Todos têm as cartas + − ÷. Recebem 1 número oculto e 2 cartas abertas; depois, mais 1 aberta.</li>
+            <li>√ dá direito a mais uma carta. × substitui o + ou o − (você escolhe qual descarta) e também dá mais uma carta.</li>
+            <li>Use todas as suas cartas numa equação. × e ÷ são feitos antes de + e −.</li>
+            <li>Há duas rodadas de apostas: passar, igualar, aumentar ou desistir.</li>
+            <li>No fim, feche a mão com a ficha 1 (chegar perto de 1), 20 (perto de 20) ou as duas.</li>
+            <li>O mais perto de cada alvo leva metade do pote. Quem aposta nas duas precisa vencer as duas.</li>
+          </ul>
+        </details>
+      </div>
+    </section>
+
+    <!-- Sala -->
+    <section id="screen-room" class="screen room hidden">
+      <main id="table">
+        <div id="hud">
+          <div id="round-label"></div>
+          <div id="phase-label"></div>
+          <div id="timer"></div>
+        </div>
+        <div id="pot"></div>
+        <div id="others"></div>
+        <div id="me"></div>
+        <div id="stage"></div>
+      </main>
+
+      <aside id="panel">
+        <header class="room-head">
+          <div>
+            <div class="muted small">Sala</div>
+            <div id="room-code" class="code"></div>
+          </div>
+          <button id="btn-copy" class="ghost">Copiar link</button>
+        </header>
+
+        <h2>Fichas</h2>
+        <ol id="scoreboard"></ol>
+
+        <details class="metals">
+          <summary>Desempate por metal</summary>
+          <p>Empate na distância: na alta vence a maior carta da equação; na baixa, a menor. Se o número for igual, decide o metal:</p>
+          <div class="metal-row">
+            <span class="metal m-ouro">Ouro</span><span>&gt;</span><span class="metal m-prata">Prata</span><span>&gt;</span>
+            <span class="metal m-bronze">Bronze</span><span>&gt;</span><span class="metal m-terra">Terra</span>
+          </div>
+        </details>
+
+        <h2>Acontecendo</h2>
+        <ul id="feed"></ul>
+      </aside>
+    </section>
+
+    <script type="module" src="/src/client/main.ts"></script>
+  </body>
+</html>
